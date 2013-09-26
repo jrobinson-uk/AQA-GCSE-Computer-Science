@@ -1,0 +1,31 @@
+#!/bin/bash
+cd ~/
+
+#sudo apt-get update
+#sudo apt-get upgrade
+
+wget https://s3.amazonaws.com/assets.minecraft.net/pi/minecraft-pi-0.1.1.tar.gz
+tar xvfz minecraft-pi-0.1.1.tar.gz
+
+cd mcpi
+wget http://icondatabase.net/sites/default/files/icons/omnom-icons-remade-34499/omnom-icons-remade-minecraft-icon-34551.png
+mv omnom-icons-remade-minecraft-icon-34551.png mcpi.png
+ 
+cd ~/
+
+mkdir minecraft_scripts
+cp -R ~/mcpi/api/python/mcpi ~/minecraft_scripts
+wget https://github.com/mr-minifig/AQA-GCSE-Computer-Science/1%20-%20Autumn%20Term%20(Y10)/minecraft_template.py
+
+
+cd ~/Desktop
+echo "[Desktop Entry]" >> mcpi.desktop
+echo "Name=Minecraft Pi" >> mcpi.desktop
+echo "Comment=Minecraft Pi Edition" >> mcpi.desktop
+echo "Exec=/home/pi/mcpi/minecraft-pi" >> mcpi.desktop
+echo "Icon=/home/pi/mcpi/mcpi.png" >> mcpi.desktop
+echo "Terminal=false" >> mcpi.desktop
+echo "MultipleArgs=false" >> mcpi.desktop
+echo "Type=Application" >> mcpi.desktop
+echo "Categories=Application;Development;" >> mcpi.desktop
+echo "StartupNotify=true" >> mcpi.desktop
